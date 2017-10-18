@@ -11,8 +11,8 @@ const WEATHER_URL = 'http://localhost:8080/';
 })
 export class AppComponent implements OnInit {
   title = 'Weather App';
-  temperature: String;
-  location: String;
+  temperature: String = 'none';
+  location: String = 'empty';
   searchTerm: String;
   addLocationTerm: String;
   addUnitType: String = 'celsius';
@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
     this.http.get<Location[]>(WEATHER_URL + 'cities').subscribe(data => {
       this.locations = data;
     });
-    console.log(this.locations);
   }
 
   onKeySearch(event: any) {
